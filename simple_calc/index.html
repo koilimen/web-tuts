@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простейший калькулятор</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <input type="number" id="a">
+            </td>
+            <td>+</td>
+            <td>
+                <input type="number" id="b">
+            </td>
+            <td>=</td>
+            <td>
+                <div id="result"></div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        const a = document.getElementById("a");
+        const b = document.getElementById("b");
+        const resultEl = document.getElementById("result");
+
+        const keyupListener = function (event) {
+            const aVal = parseInt(a.value === '' ? '0' : a.value);
+            const bVal = parseInt(b.value === '' ? '0' : b.value);
+            const result = aVal + bVal;
+            resultEl.textContent = result;
+
+        };
+
+        a.addEventListener("keyup", keyupListener);
+        b.addEventListener("keyup", keyupListener);
+    </script>
+</body>
+
+</html>
